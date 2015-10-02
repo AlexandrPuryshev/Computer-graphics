@@ -1,6 +1,5 @@
 #include "Helper.h"
 
-
 Helper::Helper()
 {
 	QLinearGradient gradient(QPointF(50, -20), QPointF(80, 20));
@@ -17,31 +16,31 @@ Helper::Helper()
 
 Helper::~Helper()
 {
-
 }
 
-void Helper::paint(QPainter *painter, QPaintEvent *event, int elapsed)
+void Helper::paint(QPainter *painter, QPaintEvent *event, int count)
 {
-	painter->fillRect(event->rect(), background);
-	painter->translate(100, 100);
-	painter->save();
-	painter->setBrush(circleBrush);
-	painter->setPen(circlePen);
-	painter->rotate(elapsed * 0.030);
-
-	qreal r = elapsed / 1000.0;
-	int n = 30;
-	for (int i = 0; i < n; ++i) {
-		painter->rotate(30);
-		qreal factor = (i + r) / n;
-		qreal radius = 0 + 120.0 * factor;
-		qreal circleRadius = 1 + factor * 20;
-		painter->drawEllipse(QRectF(radius, -circleRadius,
-			circleRadius * 2, circleRadius * 2));
+    QPixmap img("Test_Text.png");
+	if (img.isNull())
+	{
+		QMessageBox::critical(
+			0,
+			QObject::tr("Alert"),
+			QObject::tr("Image not found!"));
+		exit(0);
 	}
-	painter->restore();
-	painter->setPen(textPen);
-	painter->setFont(textFont);
-	painter->drawText(QRect(-50, -50, 100, 100), Qt::AlignCenter, QStringLiteral("Qt"));
+	painter->fillRect(event->rect(), background);
+	painter->setFont(QFont("Times", 40, QFont::Normal));
+	painter->save();
+	painter->setBrush(Qt::white);
+	painter->setPen(Qt::red);
+	painter->drawRect(showRect(img, count, painter));
 }
 
+QRect Helper::showRect(QPixmap img, int count, QPainter *painter)
+{
+	QRect rect(0, 0, 0, 0);
+	double y = count;
+	painter->drawPixmap(0, y, 600, 120, img);
+	return rect;
+}

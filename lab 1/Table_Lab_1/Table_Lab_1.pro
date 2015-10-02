@@ -12,11 +12,28 @@ TARGET = Table_Lab_1
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        table_main_window.cpp \
-    table_view.cpp
+SOURCES += 	main.cpp\
+        	table_main_window.cpp \
+    		table_view.cpp \
+                about_me.cpp \
+                Helper.cpp \
+                diagram.cpp \
+                pieview.cpp \
+                about_window.cpp
 
-HEADERS  += table_main_window.h \
-    table_view.h
 
-FORMS    += table_main_window.ui
+HEADERS  +=     table_main_window.h \
+                table_view.h \
+                about_me.h \
+                Helper.h \
+                diagram.h \
+                pieview.h \
+                about_window.h
+		 
+
+FORMS    += table_main_window.ui \
+            about_me.ui \
+            diagram.ui
+
+RESOURCES += image.qrc
+

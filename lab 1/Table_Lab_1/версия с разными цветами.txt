@@ -1,0 +1,28 @@
+		if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+		{
+			QTextStream stream(&file);
+			QString line;
+
+			tableMyView->removeRows(1, tableMyView->rowCount(QModelIndex()), QModelIndex());
+
+			int row = 1;
+			do {
+				line = stream.readLine();
+				if (!line.isEmpty()) {
+					tableMyView->insertRows(row, 1, QModelIndex());
+
+					QStringList pieces = line.split(";", QString::SkipEmptyParts);
+					tableMyView->setData(tableMyView->index(row, 0, QModelIndex()),
+						pieces.value(0));
+					tableMyView->setData(tableMyView->index(row, 1, QModelIndex()),
+						pieces.value(1));
+// 					tableMyView->setData(tableMyView->index(row, 0, QModelIndex()),
+// 						QColor(pieces.value(2)), Qt::DecorationRole);
+					row++;
+				}
+			} 
+			while (!line.isEmpty());
+
+			file.close();
+			statusBar()->showMessage(tr("Loaded %1").arg(filename), 2000);
+		}

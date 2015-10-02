@@ -1,7 +1,6 @@
 #include <QtGui>
 #include "table_view.h"
 
-
 int TableViewLab::rowCount(const QModelIndex &parent) const
 {
 	return m_rowList.size();
@@ -14,7 +13,7 @@ int TableViewLab::columnCount(const QModelIndex &parent) const
 QVariant TableViewLab::headerData(int section, Qt::Orientation orientation, int role) const
 {
 	if (role != Qt::DisplayRole)
-	{ 
+	{
 		return QVariant();
 	}
 	if (orientation == Qt::Horizontal)
@@ -28,7 +27,7 @@ QVariant TableViewLab::headerData(int section, Qt::Orientation orientation, int 
 			return QString("Population(in millions)");
 		}
 		else
-		{ 
+		{
 			return QString("Column %1").arg(section);
 		}
 	}
@@ -38,12 +37,11 @@ QVariant TableViewLab::headerData(int section, Qt::Orientation orientation, int 
 
 ItemFlags TableViewLab::flags(const QModelIndex &index) const
 {
-
-		if (!index.isValid())
-		{
-			return ItemIsEnabled;
-		}
-		return  QAbstractItemModel::flags(index) | ItemIsEnabled | ItemIsEditable;
+	if (!index.isValid())
+	{
+		return ItemIsEnabled;
+	}
+	return  QAbstractItemModel::flags(index) | ItemIsEnabled | ItemIsEditable;
 }
 
 QVariant TableViewLab::data(const QModelIndex &index, int role) const
@@ -53,7 +51,7 @@ QVariant TableViewLab::data(const QModelIndex &index, int role) const
 		return QVariant();
 	}
 	if (index.row() >= m_rowList.size())
-	{ 
+	{
 		return QVariant();
 	}
 	if (role == Qt::DisplayRole || role == Qt::EditRole)

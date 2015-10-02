@@ -1,0 +1,23 @@
+<UI version="4.0" >
+ <class>About_ME</class>
+ <widget class="QWidget" name="About_ME" >
+  <property name="objectName" >
+   <string notr="true">About_ME</string>
+  </property>
+  <property name="geometry" >
+   <rect>
+	<x>0</x>
+	<y>0</y>
+	<width>400</width>
+	<height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>About_ME</string>
+  </property>  
+ </widget>
+ <layoutDefault spacing="6" margin="11" />
+ <pixmapfunction></pixmapfunction>
+ <resources/>
+ <connections/>
+</UI>

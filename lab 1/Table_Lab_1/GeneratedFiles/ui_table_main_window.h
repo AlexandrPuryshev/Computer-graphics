@@ -121,7 +121,7 @@ public:
         Table_Main_Window->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Table_Main_Window);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 600, 19));
+        menuBar->setGeometry(QRect(0, 0, 600, 18));
         menu = new QMenu(menuBar);
         menu->setObjectName(QStringLiteral("menu"));
         menuView = new QMenu(menuBar);
@@ -137,7 +137,6 @@ public:
         menuBar->addAction(menuView->menuAction());
         menuBar->addAction(menuAbout->menuAction());
         menu->addAction(actionNew_Table);
-        menuView->addAction(actionTable);
         menuView->addAction(actionDiagram);
         menuAbout->addAction(actionAbout_me);
 
