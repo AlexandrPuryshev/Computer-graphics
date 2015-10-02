@@ -20,7 +20,7 @@ Helper::~Helper()
 
 void Helper::paint(QPainter *painter, QPaintEvent *event, int count)
 {
-    QPixmap img("Test_Text.png");
+    QPixmap img(":\img\Test_Text.png");
 	if (img.isNull())
 	{
 		QMessageBox::critical(
