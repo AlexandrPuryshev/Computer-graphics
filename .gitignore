@@ -14,6 +14,9 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+# .log files (usually created by QtTest - thanks to VestniK)
+*.log
+
 # Windows shortcuts
 *.lnk
 
@@ -53,6 +56,8 @@ Temporary Items
 *.so
 *.dll
 *.dylib
+
+*.exe
 
 # Qt-es
 
