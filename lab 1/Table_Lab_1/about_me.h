@@ -24,8 +24,7 @@ protected:
 private:
 	Ui::About_ME ui;
 	Helper *helper;
-	int count;
-	bool flag_switch;
+	int elapsed;
 };
 
 #endif // ABOUT_ME_H

@@ -5,9 +5,10 @@ Table_Main_Window::Table_Main_Window(QWidget *parent) :
 QMainWindow(parent),
 ui(new Ui::Table_Main_Window)
 {
-	tableMyView = new TableViewLab();
 
 	ui->setupUi(this);
+
+	tableMyView = new TableViewLab();
 
 	//header
 	///////////////////////////////////////
@@ -21,7 +22,7 @@ ui(new Ui::Table_Main_Window)
 	//hotkey
 	ui->menu->addAction("&Open", this, SLOT(open()), QKeySequence::Open);
 	ui->menu->addAction("&Save", this, SLOT(save()), QKeySequence::Save);
-	ui->menu->addAction("&Save As...", this, SLOT(save_as()), QKeySequence::SaveAs); // баллы??
+	ui->menu->addAction("&Save As...", this, SLOT(save_as()), QKeySequence::SaveAs);
 }
 
 void Table_Main_Window::WriteInFile(QFile &f)
@@ -252,7 +253,7 @@ void Table_Main_Window::about()
 	QSurfaceFormat fmt;
 	fmt.setSamples(4);
 	QSurfaceFormat::setDefaultFormat(fmt);
-	About_Window *native_2 = new About_Window(); // а также здесь?
+	About_Window *native_2 = new About_Window();
 	native_2->setWindowModality(WindowModal);
 	native_2->show();
 }

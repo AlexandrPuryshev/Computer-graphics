@@ -16,14 +16,20 @@ class Helper
 public:
 	Helper();
 	~Helper();
-public:
-	void paint(QPainter *painter, QPaintEvent *event, int count);
+	void paint(QPainter *painter, QPaintEvent *event, int elapsed);
+
 private:
-	QBrush background;
-	QBrush circleBrush;
-	QFont textFont;
-	QPen circlePen;
-	QPen textPen;
+
+	QBrush m_background;
+	QFont m_font;
+	QPen m_letter1, m_letter2;
+	double m_maxHeight;
+	double m_time;
+	double m_u;
+	double m_curU;
+	double m_y;
+	int m_k, m_last;
+
 	QRect showRect(QPixmap img, int count, QPainter *painter);
 };
 

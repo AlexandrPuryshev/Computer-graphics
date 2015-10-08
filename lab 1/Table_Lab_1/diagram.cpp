@@ -28,12 +28,14 @@ Diagram::Diagram(QWidget *parent, TableViewLab *tableMyVie, QTableView *tableVie
 
 	layout->addWidget(splitter, 0, 0);
 	SetModelDataFromTableModel(model, tableView);
-    ui.setupUi(this);
+	ui.setupUi(this);
 }
 
 Diagram::~Diagram()
 {
-
+	delete model;
+	delete pieChart;
+	delete selectionModel;
 }
 
 void Diagram::SetModelDataFromTableModel(QAbstractItemModel *model, QTableView *tableView)
@@ -41,9 +43,11 @@ void Diagram::SetModelDataFromTableModel(QAbstractItemModel *model, QTableView *
 	for (int r = 0; r < tableView->verticalHeader()->count(); ++r)
 	{
 		model->setData(model->index(r, 0, QModelIndex()), tableView->model()->data(tableView->model()->index(r, 0), Qt::DisplayRole).toString());
+		model->setData(model->index(r, 0, QModelIndex()), QColor(qrand() % 255, qrand() % 255, qrand() % 255), Qt::DecorationRole);
 		for (int c = 0; c < tableView->horizontalHeader()->count(); ++c)
 		{
 			model->setData(model->index(r, 1, QModelIndex()), tableView->model()->data(tableView->model()->index(r, c), Qt::DisplayRole).toString());
+			
 		}
 	}
 }

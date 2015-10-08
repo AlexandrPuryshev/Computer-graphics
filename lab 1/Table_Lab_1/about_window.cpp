@@ -19,12 +19,11 @@ About_Window::About_Window()
 	setLayout(layout);
 	//анимация(по времени)
 	/////////////////////////////////////////////////////////////////
-	QTimer *timer = new QTimer(this); // стоит ли освобождать память?
+	QTimer *timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), native, SLOT(animate()));
 	timer->start(50);
 }
 
 About_Window::~About_Window()
 {
-
 }

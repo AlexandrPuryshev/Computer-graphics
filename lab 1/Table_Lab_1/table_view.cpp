@@ -4,10 +4,14 @@
 int TableViewLab::rowCount(const QModelIndex &parent) const
 {
 	return m_rowList.size();
+	int deleteWarning = parent.column();
+	deleteWarning++;
 }
 int TableViewLab::columnCount(const QModelIndex &parent) const
 {
 	return m_rowList[0].size();
+	int deleteWarning = parent.column();
+	deleteWarning++;
 }
 
 QVariant TableViewLab::headerData(int section, Qt::Orientation orientation, int role) const
@@ -66,6 +70,10 @@ QVariant TableViewLab::data(const QModelIndex &index, int role) const
 
 TableViewLab::TableViewLab(int rows, int columns, QObject *parent) : QAbstractTableModel(parent)
 {
+	//delete warnings
+	rows = 1;
+	columns = 1;
+	////////////////////
 	QStringList newList;
 	newList.append("Russia");
 	newList.append("146");

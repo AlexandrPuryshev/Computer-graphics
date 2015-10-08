@@ -20,8 +20,6 @@
 #include "diagram.h"
 
 class TableViewLab;
-class Helper;
-class About_Window;
 
 namespace Ui {
 	class Table_Main_Window;
